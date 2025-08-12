@@ -9,6 +9,8 @@
   --color-red2: rgb(146, 22, 17);
 }
 
+ 
+
 h1{
   padding: 0px;
   margin: 0px;
@@ -102,15 +104,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 10px; /* EU ESTOU AQUI */
+  padding: 5px 10px; 
   margin: 0px auto 0px ;
   width: 15rem;
 
 } 
 
 #to-do-list li:hover {
-  /* background-color: #b9b9b9;  */
-  color: #ffffff;
   transition: 0.4s;
   padding-left: 1rem;
 }
@@ -150,6 +150,12 @@ body {
 #btn-trash:hover {
   background-color: rgb(255, 91, 91);
 }
+
+.concluido {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
 
 /* margin: 20px 10px 30px 40px;  */
 /* Margens: topo 20px, direita 10px, inferior 30px, esquerda 40px */

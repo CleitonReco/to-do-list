@@ -21,6 +21,7 @@ document
 
 
 function adicionarTarefa() {
+
   //   Pegando o valor do  INPUT
   let valorDoInput = document.getElementById("input-new-task").value.trim();
 
@@ -52,13 +53,13 @@ function adicionarTarefa() {
   document.getElementById("to-do-list").style.display = "flex";
 
   // Criando li dentro do HTML
-  let tagLi = document.createElement("li");
+  let tagLi = document.createElement("li");   
 
   // Colocando o Valor do input dentro da li
   tagLi.innerHTML = `
-       ${valorDoInput}
+       <span class="tarefa-texto">${valorDoInput}</span>
        <div class="btn">
-       <button id="btn-ok" onclick='deletarTarefa(this)'>
+       <button id="btn-ok" onclick='concluirTarefa(this)'>
           <svg id="svg"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
           <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
           </svg>
@@ -93,3 +94,19 @@ function deletarTarefa(botao) {
     document.getElementById("to-do-list").style.display = "none";
   }
 }
+
+
+//função criada para marcar e desmarcar quanod a tarefa estiver concluida
+function concluirTarefa (botao) {
+
+  //encontra a tag li do botão clicado
+  const li = botao.closest ('li');
+
+  //encontra a tag li para riscar
+  const taskTextElement = li.firstChild; 
+
+  li.classList.toggle('concluido'); 
+}
+
+
+//preciso agora mudar a execução do botão verde
