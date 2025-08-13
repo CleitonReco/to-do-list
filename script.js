@@ -6,6 +6,10 @@ function validacaoDeigualdade(inputValue) {
   return tarefas.some((task) => task === inputValue);
 }
 
+function salvarTarefas() {
+  localStorage.setItem(localStoregeKey, JSON.stringify(tarefas));
+}
+
 // Quando pressionado o Enter adiconara a tarefa
 document
   .getElementById("input-new-task")
@@ -16,12 +20,7 @@ document
     }
   });
 
-
-
-
-
 function adicionarTarefa() {
-
   //   Pegando o valor do  INPUT
   let valorDoInput = document.getElementById("input-new-task").value.trim();
 
@@ -37,13 +36,6 @@ function adicionarTarefa() {
     alert("Você já criou essa tarefa");
     return;
   }
-
-
-
-
-
-
-
   valorDoInput = firstLetter(valorDoInput);
 
   //Adicionando o valor na array tarefas
@@ -53,11 +45,11 @@ function adicionarTarefa() {
   document.getElementById("to-do-list").style.display = "flex";
 
   // Criando li dentro do HTML
-  let tagLi = document.createElement("li");   
+  let tagLi = document.createElement("li");
 
   // Colocando o Valor do input dentro da li
   tagLi.innerHTML = `
-       <span class="tarefa-texto">${valorDoInput}</span>
+       ${valorDoInput}
        <div class="btn">
        <button id="btn-ok" onclick='concluirTarefa(this)'>
           <svg id="svg"xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
@@ -74,13 +66,14 @@ function adicionarTarefa() {
   //   Pegando o que está dentro da li e colocando dentro da ul
   document.getElementById("to-do-list").appendChild(tagLi);
 
-  //depois de escrito apagara para poder inserir um novo
+  //depois de escrito apagara para poder inserir um novo, e
+  // mantera clicavel para adicionar um novo
   document.getElementById("input-new-task").value = "";
+  input.focus();
 }
 
 // Aqui chamara a função para deletar
 function deletarTarefa(botao) {
-
   //trasnforma a tag 'li'  na variavel li
   const li = botao.closest("li");
 
@@ -95,18 +88,15 @@ function deletarTarefa(botao) {
   }
 }
 
-
 //função criada para marcar e desmarcar quanod a tarefa estiver concluida
-function concluirTarefa (botao) {
-
+function concluirTarefa(botao) {
   //encontra a tag li do botão clicado
-  const li = botao.closest ('li');
+  const li = botao.closest("li");
 
   //encontra a tag li para riscar
-  const taskTextElement = li.firstChild; 
+  const taskTextElement = li.firstChild;
 
-  li.classList.toggle('concluido'); 
+  li.classList.toggle("concluido");
+
+  li.parentNode.appendChild(li);
 }
-
-
-//preciso agora mudar a execução do botão verde

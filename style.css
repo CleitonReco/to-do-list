@@ -9,23 +9,20 @@
   --color-red2: rgb(146, 22, 17);
 }
 
- 
-
-h1{
+h1 {
   padding: 0px;
   margin: 0px;
   border: 0px;
 }
 
-h2{
+h2 {
   padding: 0px;
   margin: 0px;
   border: 0px;
-  
 }
 
 body {
-  margin: 100px 0 10px ;
+  margin: 100px 0 10px;
   font-family: "Montserrat-boldItalic";
   background-color: var(--color-dark);
   color: var(--color-white);
@@ -88,27 +85,26 @@ body {
 }
 
 #to-do-list {
-  background-color: #d1d1d1;  
+  background-color: #d1d1d1;
   flex-direction: column;
   gap: 0.5rem;
   padding: 10px;
   border-radius: 10px;
-  display: none; 
+  display: none;
 }
 
 #to-do-list li {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: #050505;
   list-style-type: none;
   font-size: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 10px; 
-  margin: 0px auto 0px ;
+  padding: 5px 10px;
+  margin: 0px auto 0px;
   width: 15rem;
-
-} 
+}
 
 #to-do-list li:hover {
   transition: 0.4s;
@@ -116,14 +112,13 @@ body {
 }
 
 .btn {
-  flex-direction: column;
+  flex-direction: flex;
   display: flex;
   gap: 0.5rem;
 }
 
 #btn-ok {
   background-color: var(--color-green2);
-  
 }
 
 #btn-trash {
@@ -141,6 +136,7 @@ body {
   aspect-ratio: 1/1;
   border-radius: 50%;
   height: 100%;
+  cursor: pointer;
 }
 
 #btn-ok:hover {
@@ -155,7 +151,6 @@ body {
   text-decoration: line-through;
   color: #aaa;
 }
-
 
 /* margin: 20px 10px 30px 40px;  */
 /* Margens: topo 20px, direita 10px, inferior 30px, esquerda 40px */
